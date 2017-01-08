@@ -69,7 +69,7 @@ class NFANode:
         else:
             if label in self.edges:
                 try:
-                    self.edges[label] = (*self.edges[label], node)
+                    self.edges[label] = (self.edges[label], node)
                 except TypeError:
                     self.edges[label] = (self.edges[label], node)
             else:
@@ -109,6 +109,7 @@ nfa.add_link('q1', 'q2', 'a')  # q1 -> q2 over a
 nfa.add_link('q1', 'q2', 'b')  # q1 -> q2 over b
 nfa.add_link('q2', 'q0', 'a')  # q2 -> q0 over a
 
-while True:
-    print(nfa.parse(input('> ')))
-    chain = []
+if __name__ == '__main__':
+    while True:
+        print(nfa.parse(input('> ')))
+        chain = []
